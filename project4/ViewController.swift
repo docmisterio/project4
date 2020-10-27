@@ -4,6 +4,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
+    var websites = ["apple.com", "hackingwithswift.com"]
 
     override func loadView() {
         webView = WKWebView()
@@ -34,8 +35,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     @objc func openTapped() {
         let vc = UIAlertController(title: "Opening...", message: nil, preferredStyle: .actionSheet)
-        vc.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
-        vc.addAction(UIAlertAction(title: "hackingwithswift.com", style: .default, handler: openPage))
+        for website in websites {
+            vc.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+        }
         vc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
