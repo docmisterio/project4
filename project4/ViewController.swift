@@ -5,24 +5,36 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
     var websites = ["apple.com", "hackingwithswift.com"]
-
+    
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Open",
+            style: .plain,
+            target: self,
+            action: #selector(openTapped))
         
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
         
         let progressButton = UIBarButtonItem(customView: progressView)
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil)
+        
+        let refresh = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: webView,
+            action: #selector(webView.reload))
         
         toolbarItems = [progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
@@ -30,13 +42,24 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let url = URL(string: "https://www.hackingwithswift.com")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        webView.addObserver(
+            self,
+            forKeyPath: #keyPath(WKWebView.estimatedProgress),
+            options: .new,
+            context: nil)
     }
     
     @objc func openTapped() {
-        let vc = UIAlertController(title: "Opening...", message: nil, preferredStyle: .actionSheet)
+        let vc = UIAlertController(
+            title: "Opening...",
+            message: nil,
+            preferredStyle: .actionSheet)
+        
         for website in websites {
-            vc.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+            vc.addAction(UIAlertAction(
+                            title: website,
+                            style: .default,
+                            handler: openPage))
         }
         vc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
@@ -57,7 +80,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
         progressView.progress = Float(webView.estimatedProgress)
     }
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor
+                 navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url
         
         if let host = url?.host {
@@ -68,9 +94,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 }
             }
         }
+        let alert = UIAlertController(
+            title: "Not Allowed",
+            message: "Browsing outside of this website is not allowed",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok, I won't do it again.",
+                                      style: .cancel))
+        
         decisionHandler(.cancel)
-        let alert = UIAlertController(title: "Not Allowed", message: "Browsing outside of this website is not allowed", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok, I won't do it again.", style: .cancel))
         present(alert, animated: true)
     }
+    
 }
+
