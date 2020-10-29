@@ -98,8 +98,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
             title: "Not Allowed",
             message: "Browsing outside of this website is not allowed",
             preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok, I won't do it again.",
-                                      style: .cancel))
+        alert.addAction(UIAlertAction(
+            title: "Ok, I won't do it again.",
+            style: .cancel))
         
         decisionHandler(.cancel)
         present(alert, animated: true)
