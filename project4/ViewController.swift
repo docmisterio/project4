@@ -39,7 +39,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         toolbarItems = [progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
         
-        let url = URL(string: "https://www.hackingwithswift.com")!
+        let url = URL(string: "https://" + websites[0])!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(
@@ -101,6 +101,4 @@ class ViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.cancel)
         present(alert, animated: true)
     }
-    
 }
-
