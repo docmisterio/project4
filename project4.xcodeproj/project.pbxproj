@@ -13,6 +13,7 @@
 		A45A4E222546194C00A508A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45A4E202546194C00A508A4 /* Main.storyboard */; };
 		A45A4E242546194E00A508A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A4E232546194E00A508A4 /* Assets.xcassets */; };
 		A45A4E272546194E00A508A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45A4E252546194E00A508A4 /* LaunchScreen.storyboard */; };
+		A46A8A33254CA96F003BB90C /* WebsiteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46A8A32254CA96F003BB90C /* WebsiteTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A45A4E232546194E00A508A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A45A4E262546194E00A508A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A45A4E282546194E00A508A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A46A8A32254CA96F003BB90C /* WebsiteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				A45A4E1A2546194C00A508A4 /* AppDelegate.swift */,
 				A45A4E1C2546194C00A508A4 /* SceneDelegate.swift */,
+				A46A8A32254CA96F003BB90C /* WebsiteTableView.swift */,
 				A45A4E1E2546194C00A508A4 /* ViewController.swift */,
 				A45A4E202546194C00A508A4 /* Main.storyboard */,
 				A45A4E232546194E00A508A4 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 				A45A4E1F2546194C00A508A4 /* ViewController.swift in Sources */,
 				A45A4E1B2546194C00A508A4 /* AppDelegate.swift in Sources */,
 				A45A4E1D2546194C00A508A4 /* SceneDelegate.swift in Sources */,
+				A46A8A33254CA96F003BB90C /* WebsiteTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
