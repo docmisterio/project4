@@ -89,13 +89,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
         if let host = url?.host {
             for website in websites {
                 if host.contains(website) {
+                    print("\(host) contains \(website)")
                     decisionHandler(.allow)
                     return
                 }
             }
         }
-        let alert = UIAlertController(title: "Not Allowed", message: "Browsing outside of this website is not allowed", preferredStyle: .alert)
         
+        let alert = UIAlertController(title: "Not Allowed", message: "Browsing outside of this website is not allowed", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok, I won't do it again.", style: .cancel))
         
         decisionHandler(.cancel)
