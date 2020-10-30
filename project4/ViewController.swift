@@ -4,7 +4,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["apple.com", "hackingwithswift.com"]
+    var websites = ["google.com", "hackingwithswift.com"]
     
     override func loadView() {
         webView = WKWebView()
