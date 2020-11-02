@@ -3,16 +3,9 @@ import UIKit
 class WebsiteTableView: UITableViewController {
     var websites: [String]! = []
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -28,9 +21,10 @@ class WebsiteTableView: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let vc = storyboard?.instantiateViewController(identifier: "webView") {
-//            navigationController?.present(vc, animated: true)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(identifier: "webView") {
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
