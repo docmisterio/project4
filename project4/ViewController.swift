@@ -5,6 +5,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
     var websites = [String]()
+    var chosenSite = Int()
     
     override func loadView() {
         webView = WKWebView()
@@ -49,7 +50,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         toolbarItems = [backButton, forwardButton, progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
         
-        let url = URL(string: "https://" + websites[0])!
+        let url = URL(string: "https://" + websites[chosenSite])!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(

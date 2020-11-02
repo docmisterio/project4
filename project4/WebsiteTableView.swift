@@ -8,7 +8,6 @@ class WebsiteTableView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         websites = ["google.com", "hackingwithswift.com"]
         return websites.count
     }
@@ -22,7 +21,9 @@ class WebsiteTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(identifier: "webView") {
+        if let vc = storyboard?.instantiateViewController(identifier: "webView") as? ViewController {
+            vc.websites = websites
+            vc.chosenSite = indexPath.row
             
             navigationController?.pushViewController(vc, animated: true)
         }
